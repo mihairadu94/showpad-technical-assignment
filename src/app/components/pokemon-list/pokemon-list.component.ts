@@ -24,7 +24,7 @@ import { PokemonListItemComponent } from '../pokemon-list-item/pokemon-list-item
                     <app-pokemon-list-item [index]="$index" [pokemon]="pokemon" />
                 }
                 @if (nextPageUrl) {
-                    <button (click)="loadMore()" class="p-2 rounded-md bg-cyan-500 font-semibold">
+                    <button (click)="loadMore()" class="p-2 rounded-md bg-cyan-500 font-semibold mt-3 mb-2">
                         Load more Pokemons
                     </button>
                 } @else {

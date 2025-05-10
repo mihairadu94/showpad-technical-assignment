@@ -111,3 +111,7 @@ section {
     border-bottom-left-radius: 16px;
     border-top-right-radius: 0;
 }
+
+app-pokemon-list-item:nth-of-type(1) {
+    margin-top: 8px;
+}
