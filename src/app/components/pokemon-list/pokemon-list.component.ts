@@ -1,6 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output, signal } from '@angular/core';
 import { SimplePokemon } from 'types/simple-pokemon.type';
-
 import { PokemonListItemComponent } from '../pokemon-list-item/pokemon-list-item.component';
 
 @Component({
@@ -24,6 +23,16 @@ import { PokemonListItemComponent } from '../pokemon-list-item/pokemon-list-item
                 @for (pokemon of pokemonList(); let index = $index; track pokemon.name) {
                     <app-pokemon-list-item [index]="$index" [pokemon]="pokemon" />
                 }
+                @if (nextPageUrl) {
+                    <button (click)="loadMore()" class="p-2 rounded-md bg-cyan-500 font-semibold">
+                        Load more Pokemons
+                    </button>
+                } @else {
+                    <div class="text-center p-2 font-semibold">
+                        No more Pokemons ...
+                    </div>
+                 }
+                
             </section>
         </div>
 
@@ -34,4 +43,12 @@ import { PokemonListItemComponent } from '../pokemon-list-item/pokemon-list-item
 })
 export class PokemonListComponent {
     readonly pokemonList = input<SimplePokemon[]>([]);
-}
+
+    @Input() nextPageUrl = signal<string | null>(null);
+    @Output() loadMoreRequest = new EventEmitter<void>();
+    
+    loadMore() {
+        this.loadMoreRequest.emit();
+    }
+
+  }
