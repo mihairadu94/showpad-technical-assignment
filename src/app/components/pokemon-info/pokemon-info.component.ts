@@ -9,10 +9,10 @@ import { TypewriterComponent } from '../../typewriter/typewriter.component';
     template: `
         <app-typewriter [text]="pokemonInfo()?.name" />
 
-        <div class="sprite-wrapper">
+        <div class="sprite-wrapper absolute top-0 right-0 w-[96px] h-[96px]">
             @if (pokemonInfo(); as pokemonInfo) {
                 <div
-                    class="sprite"
+                    class="sprite w-full h-full bg-center bg-contain filter grayscale brightness-[1.5]"
                     [style.background-image]="'url(' + pokemonInfo.sprites['front_default'] + ')'"
                 ></div>
             }
