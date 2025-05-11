@@ -136,6 +136,8 @@ export class PokemonDetailContainer {
             const pokemonName = params['pokemonId'];
             if (pokemonName) {
                 this.pokemonId.set(pokemonName);
+                // Set activeTabIndex to '1' when selecting a new Pokemon
+                // this.activeTabIndex = 1; 
             }
         });
     }
